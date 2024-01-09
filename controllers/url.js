@@ -2,7 +2,6 @@ require('dotenv').config();
 
 const { default: ShortUniqueId } = require('short-unique-id');
 const Url = require('../models/url.model.js');
-// import { nanoid } from 'nanoid';
 const uid = new ShortUniqueId({ length: 10});
 
 async function handlePostUrl(req, res) {
@@ -33,7 +32,6 @@ async function handlePostUrl(req, res) {
             message: "url created",
             shortUrl: 'http://localhost:9000/' + shortId,
         });
-        return;
     })
     .catch((err) => {
         console.log("failed to store data in database with error: ", err);

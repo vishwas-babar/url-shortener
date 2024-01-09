@@ -9,7 +9,7 @@ async function handleGetAnalyticsByShortId(req, res) {
         return res.status(404).json({
             message: 'Url not found'
         });
-    }else{
+    } else {
         return res.status(200).json({
             message: 'Url found',
             data: urlData.visitTrack,
