@@ -197,3 +197,23 @@ body {
 .copy-btn i{
     font-size: 1.5rem;
 }
+
+main .analytics-message {
+    color: black;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30px;
+    text-wrap: nowrap;
+}
+
+.analytics-message a {
+    color: blue;
+    font-weight: 500;
+}
+
+.analytics-message a:hover {
+    color: rgb(0, 0, 255);
+    cursor: pointer;
+    
+}

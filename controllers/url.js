@@ -17,7 +17,7 @@ async function handlePostUrl(req, res) {
     if (isUrlExist) {
         res.status(201).json({
             message: "shortUrl for this url already exist",
-            shortUrl: 'http://localhost:9000/' + isUrlExist.shortId,
+            shortUrl: 'localhost:9000/' + isUrlExist.shortId,
         });
         return;
     }
@@ -30,7 +30,7 @@ async function handlePostUrl(req, res) {
     }).then((doc) => {
         res.status(201).json({
             message: "url created",
-            shortUrl: 'http://localhost:9000/' + shortId,
+            shortUrl: 'localhost:9000/' + shortId,
         });
     })
     .catch((err) => {
