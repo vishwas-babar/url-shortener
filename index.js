@@ -8,6 +8,7 @@ const analyticsRouter = require('./routes/analytics.js');
 const homeRouter = require('./routes/home.router.js');
 const urlRouter = require('./routes/url.js');
 const staticRouter = require('./routes/static.router.js');
+const userRouter = require('./routes/user.js');
 
 // middleware functions 
 const isUrlValid = require('./middlewares/validurl.js');
@@ -34,7 +35,7 @@ app.use('/imgs', express.static(path.join(__dirname, 'public/imgs')));
 
 app.use('/', staticRouter);
 app.use('/', homeRouter);
-
+app.use('/api/user', userRouter);
 app.use('/api/url', isUrlValid);
 app.use('/api/analytics', analyticsRouter);
 app.use('/api/url', urlRouter);
