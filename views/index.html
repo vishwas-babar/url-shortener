@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create short url</title>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main class="main-container">
+        <div class="side-img-container">
+            <div class="blur-div">
+                <h1>Create<br>Your<br>Own<br>Short<br>Url</h1>
+            </div>
+        </div>
+        <div class="form-container">
+            <div class="heading-container">
+                <h1>url shortener</h1>
+            </div>
+            <form class="url-input-form">
+                <label for="url">enter original url:</label>
+                <br>
+                <input class="url-input" type="text" name="url" placeholder="https://example.com" />
+                <br>
+                <button class="submit-btn" type="submit">get</button>
+
+                <h2 class="short-url-heading">Short Url:</h2>
+                <div class="short-url-container">
+                    <p class="url">http://localhost:4353/asdhfosf</p>
+                    <a class="copy-btn">
+                        <i class='bx bx-copy'></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <button onclick="window.location.href='analytics'">analytics</button>
+    <button onclick="window.location.href='profile'">profile</button>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -15,7 +15,7 @@ async function handlePostUrl(req, res) {
     // lets check if the url is already has a shorturl in our database
     const isUrlExist = await Url.findOne({ originalUrl: originalUrl });
     if (isUrlExist) {
-        res.status(200).json({
+        res.status(201).json({
             message: "shortUrl for this url already exist",
             shortUrl: 'http://localhost:9000/' + isUrlExist.shortId,
         });

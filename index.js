@@ -26,10 +26,23 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/profile', express.static(path.join(__dirname, 'public', 'profile.html')));
+// app.use('/profile', express.static(path.join(__dirname, 'public', 'profile.html')));
 
+// app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use('/', staticRouter);
+
+app.use('/css', express.static(path.join(__dirname, 'public/css')));
+app.use('/js', express.static(path.join(__dirname, 'public/js')));
+app.use('/imgs', express.static(path.join(__dirname, 'public/imgs')));
+// app.get('/', (req, res) => {
+//     res.sendFile(__dirname + '/views/index.html');
+// });
+
+// app.get('/profile', (req, res) => {
+//     res.sendFile(__dirname + '/views/profile.html');
+// })
+
+app.use('/', staticRouter);
 app.use('/', homeRouter);
 
 app.use('/api/url', isUrlValid);
