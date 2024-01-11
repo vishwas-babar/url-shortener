@@ -16,14 +16,24 @@ form.addEventListener('submit', event => {
 
     fetch(`/api/analytics/${shortId}`, {
         method: 'GET',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },
     })
         .then(res =>{
-            
             if(res.status === 404){
                 alert('url not found');
+                return;
+            }
+
+            if(res.status === 401) {
+                alert('you are not authorized to view this url');
+                return;
+            }
+
+            if(res.redirected){
+                window.location.href = '/login';
                 return;
             }
 

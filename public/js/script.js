@@ -9,7 +9,7 @@ form.addEventListener('submit', event => {
   const data = Object.fromEntries(formData);
   console.log(typeof data.url);
 
-  if(!data.url){
+  if (!data.url) {
     alert('please enter a url');
     return;
   }
@@ -17,22 +17,30 @@ form.addEventListener('submit', event => {
   console.log('continue to fetch');
   fetch('/api/url', {
     method: 'POST',
+    credentials: 'include',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ url: data.url })
-  }).then(res => res.json())
-  .then(data => {
-    console.log(data);
-    addDataToUi(data);
   })
-  .catch(err => {
-    console.log('failed to fetch with error: ', err);
-  });
+    .then(res => {
+      if (res.redirected) {
+        window.location.href = '/login'
+      }else{
+        return res.json();
+      }
+    })
+    .then(data => {
+      console.log(data);
+      addDataToUi(data);
+    })
+    .catch(err => {
+      console.log('failed to fetch with error: ', err);
+    });
 });
 
 function addDataToUi(data) {
-  if(!data.shortUrl){
+  if (!data.shortUrl) {
     alert('failed to create short url');
     return;
   }

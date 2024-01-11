@@ -12,21 +12,22 @@ async function handlePostUrl(req, res) {
         originalUrl = 'http://' + originalUrl;
     }
 
-    // lets check if the url is already has a shorturl in our database
-    const isUrlExist = await Url.findOne({ originalUrl: originalUrl });
-    if (isUrlExist) {
-        res.status(201).json({
-            message: "shortUrl for this url already exist",
-            shortUrl: 'localhost:9000/' + isUrlExist.shortId,
-        });
-        return;
-    }
+    // // lets check if the url is already has a shorturl in our database
+    // const isUrlExist = await Url.findOne({ originalUrl: originalUrl });
+    // if (isUrlExist) {
+    //     res.status(201).json({
+    //         message: "shortUrl for this url already exist",
+    //         shortUrl: 'localhost:9000/' + isUrlExist.shortId,
+    //     });
+    //     return;
+    // }
 
 
     await Url.create({
         shortId: shortId,
         originalUrl: originalUrl,
-        visitTrack: []
+        visitTrack: [],
+        createdBy: req.body._id
     }).then((doc) => {
         res.status(201).json({
             message: "url created",
