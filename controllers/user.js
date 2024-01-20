@@ -56,7 +56,7 @@ async function handleLoginUser(req, res) {
             message: 'user logged in',
         });
     } catch (error) {   
-            res.status(404).json({
+            res.status(401).json({
                 message: 'user not found',
             });
             return;

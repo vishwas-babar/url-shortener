@@ -3,3 +3,9 @@ body {
     width: 100%;
     background-color: rgb(180, 180, 180);
 }
+
+a {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}

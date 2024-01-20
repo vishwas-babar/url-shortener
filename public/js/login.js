@@ -23,6 +23,12 @@ loginForm.addEventListener('submit', event => {
             if (res.status === 200) {
                 window.location.href = '/'
             }
+
+            if (res.status === 401) {
+                alert('invalid email or password');
+                return;
+            }
+            
             return res.json();
         })
         .then(data => {

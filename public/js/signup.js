@@ -20,7 +20,12 @@ signupForm.addEventListener('submit', event => {
             name: data.name, userName: data.userName, email: data.email, password: data.password
         })
     })
-        .then(res => res.json())
+        .then(res => {
+            if (res.status === 200) {
+                window.location.href = '/login'
+            }
+            return res.json();
+        })
         .then(data => {
             console.log(data);
         })

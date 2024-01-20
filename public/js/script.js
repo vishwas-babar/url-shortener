@@ -25,6 +25,7 @@ form.addEventListener('submit', event => {
   })
     .then(res => {
       if (res.redirected) {
+        alert('you need to login first');
         window.location.href = '/login'
       }else{
         return res.json();
